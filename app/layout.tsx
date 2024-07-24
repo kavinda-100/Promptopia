@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import Heder from "@/components/Heder";
+import Provider from "@/components/Provider";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -32,18 +33,20 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <main className=" max-w-[1300px] mx-auto">
-            <Heder />
-            {children}
-          </main>
-          <Toaster />
-        </ThemeProvider>
+        <Provider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <main className=" max-w-[1300px] mx-auto">
+              <Heder />
+              {children}
+            </main>
+            <Toaster />
+          </ThemeProvider>
+        </Provider>
       </body>
     </html>
   );
